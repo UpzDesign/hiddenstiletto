@@ -159,3 +159,13 @@ function checkScrollBottom() {
 }
 
 window.addEventListener("scroll", checkScrollBottom);
+
+/* M2.3 — Keep the compact booking bar clear of the footer's booking link. */
+const mobileBooking = document.querySelector(".mobile-booking");
+const footer = document.querySelector("footer");
+if (mobileBooking && footer && "IntersectionObserver" in window) {
+  const footerObserver = new IntersectionObserver(entries => {
+    document.body.classList.toggle("near-footer", entries[0].isIntersecting);
+  }, { threshold: 0 });
+  footerObserver.observe(footer);
+}
