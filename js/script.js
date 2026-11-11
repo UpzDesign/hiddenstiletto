@@ -169,3 +169,36 @@ if (mobileBooking && footer && "IntersectionObserver" in window) {
   }, { threshold: 0 });
   footerObserver.observe(footer);
 }
+
+/* M2.4 — Load and play gallery clips only near the viewport.
+   Hero autoplay is deliberately untouched. CSS-hidden odd tiles stay unloaded. */
+(() => {
+  const videos = [...document.querySelectorAll("video[data-viewport-video]")];
+  if (!videos.length) return;
+  const visible = video => video.getClientRects().length > 0 &&
+    getComputedStyle(video).visibility !== "hidden";
+  const pause = video => { if (!video.paused) video.pause(); };
+  const play = video => {
+    if (document.hidden || !visible(video)) { pause(video); return; }
+    if (video.preload === "none") video.preload = "metadata";
+    const attempt = video.play();
+    if (attempt?.catch) attempt.catch(() => { /* Browser autoplay policy. */ });
+  };
+  if (!("IntersectionObserver" in window)) {
+    // Keep native playback as a fallback on older browsers.
+    videos.forEach(video => { if (visible(video)) play(video); });
+    return;
+  }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && visible(entry.target)) play(entry.target);
+      else pause(entry.target);
+    });
+  }, { rootMargin: "160px 0px", threshold: 0.01 });
+  videos.forEach(video => observer.observe(video));
+  const refresh = () => videos.forEach(video => {
+    if (!visible(video) || document.hidden) pause(video);
+  });
+  document.addEventListener("visibilitychange", refresh);
+  window.addEventListener("resize", refresh, { passive: true });
+})();
