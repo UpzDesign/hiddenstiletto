@@ -54,18 +54,6 @@ document.addEventListener("keydown",e=>{
   }
 });
 /* =========================
-   AVAILABILITY ROTATION
-========================= */
-const availabilityText = document.querySelector(".availability-text");
-
-const slots = ["Few spots left", "Booking this week", "Next availability soon"];
-
-if (availabilityText) {
-  const random = Math.floor(Math.random() * slots.length);
-  availabilityText.textContent = slots[random];
-}
-
-/* =========================
    TESTIMONIAL ROTATION
 ========================= */
 const testimonials = document.querySelectorAll(".testimonial");
@@ -102,7 +90,7 @@ function animateParallax() {
   loop();
 }
 
-animateParallax();
+if (hero && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) animateParallax();
 
 /* =========================
    REVEAL ANIMATION
@@ -144,21 +132,7 @@ function initMap() {
 
 window.initMap = initMap;
 
-/* BOOK NOW */
-const footerCTA = document.querySelector(".footer-cta");
-
-function checkScrollBottom() {
-  const scrollPosition = window.innerHeight + window.scrollY;
-  const pageHeight = document.body.offsetHeight;
-
-  if (scrollPosition >= pageHeight - 50) {
-    footerCTA?.classList.add("active");
-  } else {
-    footerCTA?.classList.remove("active");
-  }
-}
-
-window.addEventListener("scroll", checkScrollBottom);
+/* Footer booking is a native link; no scroll-state mutation required. */
 
 /* M2.3 — Keep the compact booking bar clear of the footer's booking link. */
 const mobileBooking = document.querySelector(".mobile-booking");
@@ -179,7 +153,7 @@ if (mobileBooking && footer && "IntersectionObserver" in window) {
     getComputedStyle(video).visibility !== "hidden";
   const pause = video => { if (!video.paused) video.pause(); };
   const play = video => {
-    if (document.hidden || !visible(video)) { pause(video); return; }
+    if (document.hidden || window.matchMedia("(prefers-reduced-motion: reduce)").matches || !visible(video)) { pause(video); return; }
     if (video.preload === "none") video.preload = "metadata";
     const attempt = video.play();
     if (attempt?.catch) attempt.catch(() => { /* Browser autoplay policy. */ });
@@ -197,7 +171,8 @@ if (mobileBooking && footer && "IntersectionObserver" in window) {
   }, { rootMargin: "160px 0px", threshold: 0.01 });
   videos.forEach(video => observer.observe(video));
   const refresh = () => videos.forEach(video => {
-    if (!visible(video) || document.hidden) pause(video);
+    if (document.hidden || window.matchMedia("(prefers-reduced-motion: reduce)").matches || !visible(video)) pause(video);
+    else if (video.getBoundingClientRect().top < innerHeight + 160 && video.getBoundingClientRect().bottom > -160) play(video);
   });
   document.addEventListener("visibilitychange", refresh);
   window.addEventListener("resize", refresh, { passive: true });
@@ -208,6 +183,9 @@ const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
 function applyMotionPreference() {
   document.querySelectorAll("video").forEach(video => {
     if (reducedMotionQuery.matches) video.pause();
+    else if (!video.hasAttribute("data-viewport-video") && video.autoplay && !document.hidden) {
+      video.play().catch(() => {});
+    }
   });
 }
 reducedMotionQuery.addEventListener?.("change", applyMotionPreference);
