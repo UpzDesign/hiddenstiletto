@@ -1202,8 +1202,13 @@ button,a{font-family:inherit}
   }
 }
 
-/* M2.1 gallery parity: preserve 3-column desktop; show complete pairs on phones.
-   The final unmatched tile remains in the DOM and appears on desktop/tablet. */
-@media(max-width:600px){
-  .editorial-page .service-gallery.gallery-home-grid > .gallery-tile:last-child:nth-child(odd):not(:first-child){display:none}
+/* M2.1 parity: the two-column breakpoint and orphan suppression must match.
+   Keep all videos in markup; hide only the last odd tile on narrow screens. */
+@media(max-width:900px){
+  .editorial-page .service-gallery.gallery-home-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .editorial-page .service-gallery.gallery-home-grid > .gallery-tile:nth-child(2n+1):last-child:not(:first-child){
+    display:none!important;
+  }
 }
