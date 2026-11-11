@@ -1345,3 +1345,18 @@ body.menu-open{overflow:hidden}
 @media(hover:hover) and (max-width:600px){
   .mobile-booking:hover{background:#261919}
 }
+
+/* Header alignment correction: Limited Spots immediately before WORK on mobile. */
+@media(max-width:600px){
+  .header{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:60px}
+  .header .logo{flex:1 1 auto;min-width:0}
+  .header .header-right{display:flex;align-items:center;justify-content:flex-end;flex:0 0 auto;gap:8px}
+  .header .availability{display:inline-flex!important;align-items:center;justify-self:auto;align-self:center;white-space:nowrap;font-size:9px;letter-spacing:0;gap:5px}
+  .header .menu-btn{align-self:center;justify-self:auto}
+}
+@media(max-width:380px){
+  .header{gap:4px}
+  .header .header-right{gap:4px}
+  .header .availability{font-size:8px;gap:4px}
+  .header .logo a{font-size:9px;letter-spacing:.8px}
+}
