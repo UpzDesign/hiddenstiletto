@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hidden Stiletto — Services</title>
-
-  <link rel="stylesheet" href="style/style.css">
-  <link rel="stylesheet" href="style/owl.carousel.min.css">
-  <link rel="stylesheet" href="style/owl.theme.default.min.css">
-
-  <script defer src="js/script.js"></script>
-</head>
-
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050505"><title>PEDICURE | Hidden Stiletto</title><link rel="stylesheet" href="style/style.css"><link rel="stylesheet" href="style/owl.carousel.min.css"><link rel="stylesheet" href="style/owl.theme.default.min.css"><script defer src="js/script.js"></script></head>
 <body>
-
 <header class="header">
   <div class="logo">
     <a href="index.html">HIDDEN STILETTO</a>
@@ -26,131 +14,63 @@
     </div>
 
     <button class="book-btn" data-action="book">BOOK NOW</button>
-    <button class="menu-btn" id="menuBtn">WORK</button>
+
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuOverlay">WORK</button>
   </div>
 </header>
 
-<section class="page-hero editorial">
-  <div class="hero-inner">
-    <h1>PEDICURE</h1>
+<div class="menu-overlay" id="menuOverlay">
+  <button type="button" class="menu-close" id="menuClose" aria-label="Close menu">CLOSE ✕</button>
 
-    <div class="hero-divider"></div>
-
-    <p>
-      Precision-driven care. Clean execution.<br/>
-      Built for longevity, not trends.
-    </p>
-  </div>
-</section>
-
-<section class="service-section cinematic">
-
-  <!-- CAROUSEL -->
-  <div class="service-carousel owl-carousel">
-    <div class="media"><video autoplay muted loop playsinline><source src="content/pedicure/1.MOV"></video></div>
-    <div class="media"><video autoplay muted loop playsinline><source src="content/pedicure/2.MOV"></video></div>
-    <div class="media"><video autoplay muted loop playsinline><source src="content/pedicure/3.MOV"></video></div>
-    <div class="media"><video autoplay muted loop playsinline><source src="content/pedicure/4.MOV"></video></div>
-    <div class="media"><video autoplay muted loop playsinline><source src="content/pedicure/5.mov"></video></div>
-  </div>
-
-  <!-- INFO -->
-  <div class="service-info editorial">
-    <h2>DRY PEDICURE</h2>
-
-    <p class="lead">
-      A meticulous dry technique focused on precision cuticle work,
-      skin refinement, and a flawless, long-lasting finish.
-    </p>
-
-    <div class="service-meta">
-      <span>Electric file technique</span>
-      <span>Zero soak process</span>
-      <span>Extended wear finish</span>
+  <div class="menu-inner">
+    <div class="menu-left">
+      <h2>HIDDEN STILETTO</h2>
+      <p>Nail Artist</p>
     </div>
 
-    <button class="glow" data-action="book">
-      Book Pedicure
-    </button>
+    <nav class="menu-links">
+      <a href="structured-manicure.html">Structured Manicure</a>
+      <a href="sculpted-extensions.html">Extensions</a>
+      <a href="design.html">Design Levels</a>
+      <a href="pedicure.html">Pedicure</a>
+      <a href="mans-nails.html">Men's Services</a>
+    </nav>
   </div>
+</div>
 
-</section>
-
-<section class="service-section cinematic">
-
-  <!-- CAROUSEL -->
-  <div class="service-carousel owl-carousel">
-    <div class="media"><video autoplay muted loop playsinline><source src="content/pedicure/7.MOV"></video></div>
-    <div class="media"><video autoplay muted loop playsinline><source src="content/pedicure/8.MOV"></video></div>
-    <div class="media"><video autoplay muted loop playsinline><source src="content/pedicure/9.MOV"></video></div>
-    <div class="media"><video autoplay muted loop playsinline><source src="content/pedicure/10.MOV"></video></div>
-    <div class="media"><video autoplay muted loop playsinline><source src="content/pedicure/11.mp4"></video></div>
-  </div>
-
-  <!-- INFO -->
-  <div class="service-info editorial">
-
-    <h2>DESIGN LEVELS</h2>
-
-    <p class="lead">
-      Progressive tiers of complexity. Each level builds on structure,
-      layering, and artistic execution.
-    </p>
-
-    <!-- TIERS -->
-    <div class="tiers refined">
-
-      <div class="tier-item">
-        <h3>SERVICE 1</h3>
-        <p>Minimal, clean, controlled accents.</p>
-        <button class="glow small" data-action="book">Book</button>
-      </div>
-
-      <div class="tier-item">
-        <h3>SERVICE 2</h3>
-        <p>Elevated textures, chrome, depth.</p>
-        <button class="glow small" data-action="book">Book</button>
-      </div>
-
-      <div class="tier-item">
-        <h3>SERVICE 3</h3>
-        <p>Statement design, layered complexity.</p>
-        <button class="glow small" data-action="book">Book</button>
-      </div>
-
-      <div class="tier-item">
-        <h3>SERVICE 4</h3>
-        <p>Editorial execution. No limits.</p>
-        <button class="glow small" data-action="book">Book</button>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class="book-trigger" data-action="book">
-  <div class="trigger-content">
-    <h2>BOOK YOUR SESSION</h2>
-    <p>Appointments are limited</p>
-  </div>
-</section>
-
-<footer class="footer">
+<main class="editorial-page"><section class="page-hero editorial-hero"><span class="hero-kicker">HIDDEN STILETTO / THE SERVICES</span><h1>PEDICURE</h1><div class="hero-divider"></div><p>Restoration. Indulgence. Renewed.</p><span class="hero-scroll">SCROLL TO EXPLORE ↓</span></section><section class="service-section editorial-service" id="dry-pedicure-full-restoration"><div class="service-eyebrow"><span>HIDDEN STILETTO / 01</span><span>RESTORATION</span></div><div class="service-gallery owl-carousel" aria-label="Service work gallery"><div class="media"><video autoplay muted loop playsinline preload="metadata"><source src="content/pedicure/1.MOV"></video></div>
+<div class="media"><video autoplay muted loop playsinline preload="metadata"><source src="content/pedicure/2.MOV"></video></div>
+<div class="media"><video autoplay muted loop playsinline preload="metadata"><source src="content/pedicure/3.MOV"></video></div>
+<div class="media"><video autoplay muted loop playsinline preload="metadata"><source src="content/pedicure/4.MOV"></video></div>
+<div class="media"><video autoplay muted loop playsinline preload="metadata"><source src="content/pedicure/5.mov"></video></div></div><div class="service-info editorial-info"><p class="service-index">01 / RESTORATION</p><h2>Dry Pedicure - Full Restoration</h2><p>A complete, waterless pedicure designed for total refinement — from cuticle to sole. This service includes meticulous dry cuticle work, S.M.A.R.T techniques, detailed nail shaping, and controlled callous smoothing to restore balance, softness, and clean structure. Performed without soaking for maximum precision and elevated hygiene, topped off with a deep tissue massage.</p><p class="service-signature">Soft finish. Strength from within.</p><button class="glow service-book" type="button" data-action="book" data-service="Dry Pedicure - Full Restoration">BOOK DRY PEDICURE - FULL RESTORATION</button></div></section><section class="service-section editorial-service" id="dry-pedicure-maintenance"><div class="service-eyebrow"><span>HIDDEN STILETTO / 02</span><span>MAINTENANCE</span></div><div class="service-gallery owl-carousel" aria-label="Service work gallery"><div class="media"><video autoplay muted loop playsinline preload="metadata"><source src="content/pedicure/7.MOV"></video></div>
+<div class="media"><video autoplay muted loop playsinline preload="metadata"><source src="content/pedicure/8.MOV"></video></div>
+<div class="media"><video autoplay muted loop playsinline preload="metadata"><source src="content/pedicure/9.MOV"></video></div>
+<div class="media"><video autoplay muted loop playsinline preload="metadata"><source src="content/pedicure/10.MOV"></video></div>
+<div class="media"><video autoplay muted loop playsinline preload="metadata"><source src="content/pedicure/11.mp4"></video></div></div><div class="service-info editorial-info"><p class="service-index">02 / MAINTENANCE</p><h2>Dry Pedicure - Maintenance</h2><p>A waterless pedicure focused on advanced cuticle care, nail shaping, and clean finishing. Performed dry for maximum precision and hygiene, this service excludes callous removal. Recommended for upkeep and color change.</p><p class="service-signature">Pure maintenance. Elevated.</p><button class="glow service-book" type="button" data-action="book" data-service="Dry Pedicure - Maintenance">BOOK DRY PEDICURE - MAINTENANCE</button></div></section><section class="service-section editorial-service" id="deep-callous-peel-removal"><div class="service-eyebrow"><span>HIDDEN STILETTO / 03</span><span>TREATMENT</span></div><div class="service-gallery owl-carousel" aria-label="Service work gallery"><div class="media"><img loading="lazy" src="content/pedicure/0.JPEG" alt="Hidden Stiletto nail artistry"></div>
+<div class="media"><img loading="lazy" src="content/pedicure/6.JPEG" alt="Hidden Stiletto nail artistry"></div>
+<div class="media"><video autoplay muted loop playsinline preload="metadata"><source src="content/pedicure/4.MOV"></video></div></div><div class="service-info editorial-info"><p class="service-index">03 / TREATMENT</p><h2>Deep Callous Peel / Removal</h2><p>This treatment penetrates deep layers of buildup, softening and removing callous without aggressive abrasion. This service restores softness without harsh scraping, revealing balanced, even-textured skin with lasting results.</p><p class="service-signature">Softened.</p><button class="glow service-book" type="button" data-action="book" data-service="Deep Callous Peel / Removal">BOOK DEEP CALLOUS PEEL / REMOVAL</button></div></section></main><footer class="footer span-3">
 
   <div class="footer-grid">
 
+    <!-- MAP -->
     <div class="footer-map">
       <div id="map"></div>
     </div>
 
+    <!-- SOCIAL -->
     <div class="footer-col">
       <h3>SOCIAL</h3>
-      <a href="https://www.instagram.com/hidden.stiletto/" target="_blank">Instagram</a>
-      <a href="https://www.tiktok.com/hiddenstiletto" target="_blank">TikTok</a>
+
+      <a href="https://www.instagram.com/hidden.stiletto/" target="_blank" rel="noopener noreferrer">
+        <img src="content/instagram.svg" alt="Instagram" class="social-icon">
+      </a>
+
+      <a href="https://www.tiktok.com/hiddenstiletto" target="_blank" rel="noopener noreferrer">
+        <img src="content/tiktok.svg" alt="TikTok" class="social-icon">
+      </a>
     </div>
 
+    <!-- CONTACT -->
     <div class="footer-col">
       <h3>CONTACT</h3>
       <p>New York City</p>
@@ -158,6 +78,7 @@
       <p>info@hiddenstiletto.com</p>
     </div>
 
+    <!-- CTA -->
     <div class="footer-cta" data-action="book">
       <h2>BOOK NOW</h2>
       <p>Limited availability</p>
@@ -167,29 +88,8 @@
 
 </footer>
 
-<script async
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxwfY7bf5Bf-7UccznorqFrkKunnogUi0&callback=initMap">
-</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
+<script src="js/carousels.js"></script>
 
-<script>
-$(function () {
-  $(".service-carousel").owlCarousel({
-    margin: 12,
-    loop: true,
-    nav: true,
-    dots: true,
-    autoplay: true,
-    autoplayTimeout: 4000,
-    responsive: {
-      0: { items: 1.2 },
-      700: { items: 2.5 },
-      1100: { items: 3.5 }
-    }
-  });
-});
-</script>
-
-</body>
-</html>
+</body></html>

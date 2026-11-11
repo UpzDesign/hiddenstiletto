@@ -4,14 +4,10 @@ const BOOK_URL =
 /* =========================
    BOOKING
 ========================= */
-function openBooking() {
-  window.open(BOOK_URL, "_blank");
-}
+function openBooking(url = BOOK_URL) { window.open(url, "_blank", "noopener,noreferrer"); }
 
 document.addEventListener("click", (e) => {
-  if (e.target.closest("[data-action='book']")) {
-    openBooking();
-  }
+  const trigger = e.target.closest("[data-action='book']"); if (trigger) { openBooking(trigger.dataset.bookUrl || BOOK_URL); }
 });
 
 /* =========================
@@ -31,7 +27,7 @@ menuClose?.addEventListener("click", () => {
 
 menuOverlay?.addEventListener("click", (e) => {
   if (e.target === menuOverlay) {
-    menuOverlay.classList.remove("active");
+    menuOverlay?.classList.remove("active");
   }
 });
 
@@ -114,6 +110,7 @@ window.addEventListener("load", () => {
 
 /* GOOGLE MAP */
 function initMap() {
+  if (!document.getElementById("map") || !window.google?.maps) return;
   const location = { lat: 40.7642, lng: -73.9117 };
 
   const map = new google.maps.Map(document.getElementById("map"), {
@@ -139,10 +136,13 @@ function checkScrollBottom() {
   const pageHeight = document.body.offsetHeight;
 
   if (scrollPosition >= pageHeight - 50) {
-    footerCTA.classList.add("active");
+    footerCTA?.classList.add("active");
   } else {
-    footerCTA.classList.remove("active");
+    footerCTA?.classList.remove("active");
   }
 }
 
 window.addEventListener("scroll", checkScrollBottom);
+// Menu accessibility and focus management
+document.getElementById("menuBtn")?.addEventListener("click",()=>document.getElementById("menuBtn")?.setAttribute("aria-expanded","true"));
+document.getElementById("menuClose")?.addEventListener("click",()=>document.getElementById("menuBtn")?.setAttribute("aria-expanded","false"));

@@ -26,12 +26,12 @@
 
     <button class="book-btn" data-action="book">BOOK NOW</button>
 
-    <button class="menu-btn" id="menuBtn">WORK</button>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuOverlay">WORK</button>
   </div>
 </header>
 
 <div class="menu-overlay" id="menuOverlay">
-  <div class="menu-close" id="menuClose">CLOSE ✕</div>
+  <button type="button" class="menu-close" id="menuClose" aria-label="Close menu">CLOSE ✕</button>
 
   <div class="menu-inner">
     <div class="menu-left">
@@ -41,10 +41,10 @@
 
     <nav class="menu-links">
       <a href="structured-manicure.html">Structured Manicure</a>
-      <a href="sculpted-extensions.html">Sculpted Extensions</a>
-      <a href="#">Design Levels</a>
-      <a href="pedicure.html">Peducire</a>
-      <a href="mans-nails.html">Man's Services</a>
+      <a href="sculpted-extensions.html">Extensions</a>
+      <a href="design.html">Design Levels</a>
+      <a href="pedicure.html">Pedicure</a>
+      <a href="mans-nails.html">Men's Services</a>
     </nav>
   </div>
 </div>
@@ -76,7 +76,7 @@
       <source src="content/1.mp4" type="video/mp4">
     </video>
 
-    <a href="work.html" class="overlay-link">
+    <a href="structured-manicure.html" class="overlay-link">
       <span>View Details</span>
     </a>
   </div>
@@ -95,7 +95,7 @@
       <source src="content/2.mp4" type="video/mp4">
     </video>
 
-    <a href="work.html" class="overlay-link">
+    <a href="sculpted-extensions.html" class="overlay-link">
       <span>View Details</span>
     </a>
   </div>
@@ -107,7 +107,7 @@
       <source src="content/4.mov" type="video/mp4">
     </video>
 
-    <a href="work.html" class="overlay-link">
+    <a href="design.html" class="overlay-link">
       <span>View Details</span>
     </a>
   </div>
@@ -119,50 +119,19 @@
       <source src="content/3.mp4" type="video/mp4">
     </video>
 
-    <a href="work.html" class="overlay-link">
+    <a href="pedicure.html" class="overlay-link">
       <span>View Details</span>
     </a>
   </div>
 </section>
 
-<section class="block span-3 service-carousel owl-carousel">
-
-  <div class="service-item">
-    <div class="service-content">
-      <h2>Structured Manicure</h2>
-      <p>
-        A strengthening manicure using builder gel to add structure and durability to natural nails.
-        Ideal for maintaining length and preventing breakage with a clean, polished finish.
-      </p>
-      <button class="glow" data-action="book">Learn more about structured manicures</button>
-    </div>
-  </div>
-
-  <div class="service-item">
-    <div class="service-content">
-      <h2>Sculpted Gel Extensions</h2>
-      <p>
-        Custom-shaped nail extensions built to add length and shape without tips.
-        Lightweight, durable, and tailored to your desired style.
-      </p>
-      <button class="glow" data-action="book">Learn more about Sculpted Gel Extensions</button>
-    </div>
-  </div>
-
-  <div class="service-item">
-    <div class="service-content">
-      <h2>Dry Pedicure</h2>
-      <p>
-        A dry pedicure using electric file techniques for refined cuticles,
-        smooth heels, and a polished, durable result.
-      </p>
-      <button class="glow" data-action="book">Learn more about Dry Pedicure</button>
-    </div>
-  </div>
-
+<section class="block span-3 home-services owl-carousel">
+<div class="service-item"><div class="service-content"><h2>Structured Manicure</h2><p>Natural nail restoration, strength and precision.</p><a class="glow" href="structured-manicure.html">EXPLORE STRUCTURED MANICURE</a></div></div>
+<div class="service-item"><div class="service-content"><h2>Extensions</h2><p>Length. Power. Presence.</p><a class="glow" href="sculpted-extensions.html">EXPLORE EXTENSIONS</a></div></div>
+<div class="service-item"><div class="service-content"><h2>Pedicure</h2><p>Restoration. Indulgence. Renewed.</p><a class="glow" href="pedicure.html">EXPLORE PEDICURE</a></div></div>
+<div class="service-item"><div class="service-content"><h2>Design Levels</h2><p>Bold. Artistic. Expression.</p><a class="glow" href="design.html">EXPLORE DESIGN LEVELS</a></div></div>
 </section>
-
-  <section class="block span-1">
+<section class="block span-1">
     <div class="media">
       <video autoplay muted loop playsinline preload="metadata">
         <source src="content/03.37.41.mp4" type="video/mp4">
@@ -266,24 +235,14 @@
 
 </footer>
 
-<script async
+<script defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxwfY7bf5Bf-7UccznorqFrkKunnogUi0&callback=initMap">
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 
-<script>
-$(".service-carousel").owlCarousel({
-  items: 1,
-  loop: true,
-  nav: false,
-  dots: true,
-  autoplay: true,
-  autoplayTimeout: 4500,
-  smartSpeed: 700,
-});
-</script>
+<script src="js/carousels.js"></script>
 
 </body>
 </html>

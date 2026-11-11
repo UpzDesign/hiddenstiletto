@@ -31,7 +31,7 @@
 </header>
 
 <div class="menu-overlay" id="menuOverlay">
-  <div class="menu-close" id="menuClose">CLOSE ✕</div>
+  <button type="button" class="menu-close" id="menuClose">CLOSE ✕</button>
 
   <div class="menu-inner">
     <div class="menu-left">
@@ -41,10 +41,10 @@
 
     <nav class="menu-links">
       <a href="structured-manicure.html">Structured Manicure</a>
-      <a href="sculpted-extensions.html">Sculpted Extensions</a>
-      <a href="#">Design Levels</a>
-      <a href="pedicure.html">Peducire</a>
-      <a href="mans-nails.html">Man's Services</a>
+      <a href="sculpted-extensions.html">Extensions</a>
+      <a href="design.html">Design Levels</a>
+      <a href="pedicure.html">Pedicure</a>
+      <a href="mans-nails.html">Men's Services</a>
     </nav>
   </div>
 </div>
@@ -210,23 +210,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 
-<script>
-$(function () {
-  $(".service-carousel").owlCarousel({
-    items: 5,
-    margin: 10,
-    loop: true,
-    nav: true,
-    dots: true,
-    autoplay: true,
-    autoplayTimeout: 4000,
-    responsive: {
-      0: { items: 2 },
-      900: { items: 4 }
-    }
-  });
-});
-</script>
+<script src="js/carousels.js"></script>
 
 </body>
 </html>
