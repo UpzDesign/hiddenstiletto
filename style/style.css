@@ -1201,3 +1201,9 @@ button,a{font-family:inherit}
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
 }
+
+/* M2.1 gallery parity: preserve 3-column desktop; show complete pairs on phones.
+   The final unmatched tile remains in the DOM and appears on desktop/tablet. */
+@media(max-width:600px){
+  .editorial-page .service-gallery.gallery-home-grid > .gallery-tile:last-child:nth-child(odd):not(:first-child){display:none}
+}
