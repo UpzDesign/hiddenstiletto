@@ -1231,3 +1231,32 @@ span.red{
     gap:2px;
   }
 }
+
+/* Phase 1.5 — fix homepage mobile overflow/implicit third grid column.
+   The homepage's .home-services span 3 overrode its two-column breakpoint. */
+main.grid{min-width:0;max-width:100%;grid-template-columns:repeat(3,minmax(0,1fr))}
+main.grid > *{min-width:0;max-width:100%}
+main.grid > .home-services{grid-column:1/-1;min-width:0;width:100%;max-width:100%;overflow:hidden}
+main.grid > .home-services .owl-stage-outer{width:100%;overflow:hidden}
+main.grid > .home-services .owl-item{min-width:0}
+main.grid > .home-services .service-content{max-width:100%;padding-inline:18px}
+@media(max-width:900px){
+  main.grid{grid-template-columns:repeat(2,minmax(0,1fr));width:100%;max-width:100%;overflow:hidden}
+  main.grid > .span-1{grid-column:span 1}
+  main.grid > .span-2,main.grid > .span-3,main.grid > .force-full{grid-column:1/-1}
+  main.grid > .home-services{grid-column:1/-1!important}
+  main.grid > .block:not(.home-services){min-width:0}
+  main.grid > .block.span-1:not(.force-full){height:auto;aspect-ratio:9/16}
+  main.grid > .block.span-2{height:55vh}
+  main.grid > .block.span-3{height:auto;min-height:0}
+  main.grid > .block.span-3.text-block{min-height:240px}
+  main.grid > .block.span-1 .media{position:absolute;inset:0;height:100%;width:100%;min-width:0}
+  main.grid > .home-services{height:auto;min-height:320px}
+  main.grid > .home-services .service-item{min-height:320px;height:auto}
+  .editorial-page .service-gallery.gallery-home-grid{grid-template-columns:repeat(2,minmax(0,1fr));width:100%;max-width:100%;overflow:hidden}
+  .editorial-page .service-gallery.gallery-home-grid > .gallery-tile{min-width:0;max-width:100%;grid-column:auto}
+}
+@media(max-width:480px){
+  main.grid > .block.span-2{height:50vh}
+  main.grid > .home-services .service-content{padding-inline:12px}
+}
