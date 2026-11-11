@@ -1305,3 +1305,16 @@ body.menu-open{overflow:hidden}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .block,.text-block,.book-trigger{opacity:1!important;transform:none!important}
 }
+
+/* Header availability — compact, visible on mobile without crowding navigation. */
+.header .availability{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0;font-size:10px;letter-spacing:.06em}
+.header .availability .dot{flex:0 0 6px}
+@media(max-width:600px){
+  .header .availability{display:inline-flex;font-size:9px;letter-spacing:0;gap:5px}
+  .header-right{gap:8px}
+}
+@media(max-width:380px){
+  .header .availability{font-size:8px;gap:4px}
+  .header .availability .dot{width:5px;height:5px;flex-basis:5px}
+  .header-right{gap:4px}
+}
