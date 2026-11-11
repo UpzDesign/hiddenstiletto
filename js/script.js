@@ -202,3 +202,13 @@ if (mobileBooking && footer && "IntersectionObserver" in window) {
   document.addEventListener("visibilitychange", refresh);
   window.addEventListener("resize", refresh, { passive: true });
 })();
+
+/* M2.5 — Respect reduced-motion settings without changing media layout. */
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+function applyMotionPreference() {
+  document.querySelectorAll("video").forEach(video => {
+    if (reducedMotionQuery.matches) video.pause();
+  });
+}
+reducedMotionQuery.addEventListener?.("change", applyMotionPreference);
+applyMotionPreference();
