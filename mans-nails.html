@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050505"><title>MEN'S NAIL CARE | Hidden Stiletto</title><link rel="stylesheet" href="style/style.css?v=m2-1-pairs-fix"><link rel="stylesheet" href="style/owl.carousel.min.css"><link rel="stylesheet" href="style/owl.theme.default.min.css"><script defer src="js/script.js"></script></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050505"><title>MEN'S NAIL CARE | Hidden Stiletto</title><link rel="stylesheet" href="style/style.css?v=m2-2-navigation"><link rel="stylesheet" href="style/owl.carousel.min.css"><link rel="stylesheet" href="style/owl.theme.default.min.css"><script defer src="js/script.js?v=m2-2-navigation"></script></head>
 <body>
 <header class="header">
   <div class="logo">
@@ -15,11 +15,11 @@
 
     <button class="book-btn" data-action="book">BOOK NOW</button>
 
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuOverlay">WORK</button>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuOverlay" type="button" aria-label="Open services menu">WORK</button>
   </div>
 </header>
 
-<div class="menu-overlay" id="menuOverlay">
+<div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Services navigation" aria-hidden="true" inert>
   <button type="button" class="menu-close" id="menuClose" aria-label="Close menu">CLOSE ✕</button>
 
   <div class="menu-inner">
@@ -28,7 +28,8 @@
       <p>Nail Artist</p>
     </div>
 
-    <nav class="menu-links">
+    <nav class="menu-links" aria-label="Services">
+      <a href="index.html">Home</a>
       <a href="structured-manicure.html">Structured Manicure</a>
       <a href="sculpted-extensions.html">Extensions</a>
       <a href="design.html">Design Levels</a>
@@ -37,6 +38,7 @@
     </nav>
   </div>
 </div>
+<a class="mobile-booking" href="https://app.squareup.com/appointments/book/7h8i4gg9snnlwt/L5AKCJ5AXEKRV/start" target="_blank" rel="noopener noreferrer" aria-label="Book an appointment in a new tab">BOOK AN APPOINTMENT <span aria-hidden="true">↗</span></a>
 
 <main class="editorial-page"><section class="page-hero editorial-hero"><span class="hero-kicker">HIDDEN STILETTO / THE SERVICES</span><h1>MEN'S NAIL CARE</h1><div class="hero-divider"></div><p>Clean. Precise. Considered.</p><span class="hero-scroll">SCROLL TO EXPLORE ↓</span></section>
 <section class="service-section editorial-service" id="mens-manicure"><div class="service-eyebrow"><span>HIDDEN STILETTO</span><span>MEN'S NAIL CARE</span></div><div class="service-gallery gallery-home-grid" aria-label="Men's manicure gallery — sample work"><div class="gallery-tile"><div class="media"><video autoplay muted loop playsinline preload="metadata"><source src="content/1.mp4" type="video/mp4"></video></div></div>
@@ -75,10 +77,10 @@
     </div>
 
     <!-- CTA -->
-    <div class="footer-cta" data-action="book">
+    <a class="footer-cta" href="https://app.squareup.com/appointments/book/7h8i4gg9snnlwt/L5AKCJ5AXEKRV/start" target="_blank" rel="noopener noreferrer" aria-label="Book an appointment in a new tab">
       <h2>BOOK NOW</h2>
       <p>Limited availability</p>
-    </div>
+    </a>
 
   </div>
 

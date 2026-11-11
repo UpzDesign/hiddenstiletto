@@ -10,33 +10,49 @@ document.addEventListener("click", (e) => {
   const trigger = e.target.closest("[data-action='book']"); if (trigger) { openBooking(trigger.dataset.bookUrl || BOOK_URL); }
 });
 
-/* =========================
-   MENU
-========================= */
+/* Accessible services menu */
 const menuBtn = document.getElementById("menuBtn");
 const menuOverlay = document.getElementById("menuOverlay");
 const menuClose = document.getElementById("menuClose");
-
-menuBtn?.addEventListener("click", () => {
-  menuOverlay.classList.add("active");
+let menuReturnFocus = null;
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
+document.querySelectorAll(".menu-links a").forEach(link => {
+  if (link.getAttribute("href") === currentPage) link.setAttribute("aria-current","page");
 });
-
-menuClose?.addEventListener("click", () => {
-  menuOverlay.classList.remove("active");
-});
-
-menuOverlay?.addEventListener("click", (e) => {
-  if (e.target === menuOverlay) {
-    menuOverlay?.classList.remove("active");
-  }
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
+function setMenuOpen(open) {
+  if (!menuOverlay || !menuBtn) return;
+  if (open) {
+    menuReturnFocus = document.activeElement;
+    menuOverlay.inert = false;
+    menuOverlay.setAttribute("aria-hidden","false");
+    menuOverlay.classList.add("active");
+    menuBtn.setAttribute("aria-expanded","true");
+    document.body.classList.add("menu-open");
+    menuClose?.focus();
+  } else {
+    menuClose?.blur();
     menuOverlay.classList.remove("active");
+    menuOverlay.setAttribute("aria-hidden","true");
+    menuOverlay.inert = true;
+    menuBtn.setAttribute("aria-expanded","false");
+    document.body.classList.remove("menu-open");
+    (menuReturnFocus?.isConnected ? menuReturnFocus : menuBtn)?.focus();
+  }
+}
+menuBtn?.addEventListener("click",()=>setMenuOpen(true));
+menuClose?.addEventListener("click",()=>setMenuOpen(false));
+menuOverlay?.addEventListener("click",e=>{if(e.target===menuOverlay)setMenuOpen(false)});
+document.addEventListener("keydown",e=>{
+  if(!menuOverlay?.classList.contains("active"))return;
+  if(e.key==="Escape"){e.preventDefault();setMenuOpen(false)}
+  if(e.key==="Tab"){
+    const items=Array.from(menuOverlay.querySelectorAll('a[href],button:not([disabled])'));
+    if(!items.length)return;
+    const first=items[0],last=items[items.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
   }
 });
-
 /* =========================
    AVAILABILITY ROTATION
 ========================= */
@@ -143,7 +159,3 @@ function checkScrollBottom() {
 }
 
 window.addEventListener("scroll", checkScrollBottom);
-// Menu accessibility and focus management
-document.getElementById("menuBtn")?.addEventListener("click",()=>document.getElementById("menuBtn")?.setAttribute("aria-expanded","true"));
-document.getElementById("menuClose")?.addEventListener("click",()=>document.getElementById("menuBtn")?.setAttribute("aria-expanded","false"));
-
