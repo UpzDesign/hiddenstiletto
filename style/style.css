@@ -1105,3 +1105,63 @@ span.red{
   .editorial-page .service-gallery.media-grid{gap:4px}
   .editorial-page .service-gallery.media-grid .media{height:auto;min-height:0}
 }
+
+/* Phase 1.3 — reuse the proven homepage grid, media, and native muted autoplay. */
+.editorial-page .service-gallery.gallery-home-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:2px;
+  width:100%;
+  max-width:none;
+  margin:0;
+  overflow:visible;
+}
+.editorial-page .service-gallery.gallery-home-grid .block{
+  position:relative;
+  grid-column:span 1;
+  width:100%;
+  height:auto;
+  aspect-ratio:9/16;
+  min-height:0;
+  overflow:hidden;
+  background:transparent;
+}
+.editorial-page .service-gallery.gallery-home-grid .media{
+  position:relative;
+  display:flex;
+  width:100%;
+  height:100%;
+  min-height:0;
+  padding:0;
+  align-items:flex-end;
+  justify-content:flex-start;
+  overflow:hidden;
+  background:transparent;
+}
+.editorial-page .service-gallery.gallery-home-grid .media video,
+.editorial-page .service-gallery.gallery-home-grid .media img{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none;
+  max-height:none;
+  object-fit:cover;
+  object-position:center;
+  pointer-events:none;
+  transform:scale(1.02)!important;
+  transition:transform .6s ease;
+  background:transparent;
+}
+.editorial-page .service-gallery.gallery-home-grid .media:hover video,
+.editorial-page .service-gallery.gallery-home-grid .media:hover img{
+  transform:scale(1.06)!important;
+}
+@media(max-width:900px){
+  .editorial-page .service-gallery.gallery-home-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .editorial-page .service-gallery.gallery-home-grid .block{height:auto;min-height:0}
+}
+@media(max-width:480px){
+  .editorial-page .service-gallery.gallery-home-grid{gap:2px}
+}
